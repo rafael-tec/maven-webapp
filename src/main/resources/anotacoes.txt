@@ -1,0 +1,131 @@
+Maven - Ferramenta de gerenciamento de dependências e builds automatizados
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Comandos básicos
+
+
+Criar de forma rápida:
+
+Para criar um projeto maven simples de forma rápida, executar linha de comando "mvn archetype:generate -DartifactId=produtos -D groupId=br.com.alura.maven -DinteractiveMode=false -DarchetTypeArtifactId=maven-archetype-quickstart".
+
+No paramêtro "archetTypeArtifactId" informar um artifactId de um projeto que possa ser utilizado para exemplo.
+
+
+
+Compilar o código fonte:
+
+Dentro do diretório do projeto, executar linha de comando "mvn compile".
+
+
+
+Executar classes de teste:
+
+Os métodos de teste precisam possuir annotation @Test do junit para serem executados, executar linha de comando "mvn test".
+
+
+
+Limpar código fonte compilado:
+
+Para limpar todos os arquivos compilados que estão dentro do diretório target, executar linha de comando "mvn clean".
+
+
+
+Gerar um arquivo final (.war, .jar e etc)r:
+
+Parar gerar um arquivo final dos arquivos que foram compilados e empacotados com sucesso, executar linha de comando "mvn package".
+
+O tipo de arquivo final depende da configuração que foi definida no arquivo pom.xml na chave "packaging".
+
+
+
+Adicionar um .jar ao class path:
+
+Para adicionar qualquer arquivo .jar ao seu class path, executar linha de comandos "mvn -cp produtos-1.0-SNAPSHOT.jar br.com.alura.maven.App"
+
+
+
+Gerar relatório de cobertura de testes (jacoco)
+
+Para gerar um relatório com análise de cobertura de testes unitários no código fonte, incluir o plugin no pom.xml e incluir os goals (prepare-agent e report),
+depois executar linha de comando "mvn jacoco:report"
+
+
+
+Gerar relatório de testes (surefire):
+
+Para gerar relatório com informações dos testes executados pelo junit, executar linha de comando "mvn surefire-report:report".
+
+
+
+Gerar relatório de qualidade de código (pmd):
+
+Para gerar relatório com informações de warnings e outras regras que podem ser definidas na configuração, executar linha de comando "mvn verify".
+
+
+
+Instalação de um projeto no seu repositório (local):
+
+Para realizar a instalação do pacote de algum projeto para seu repositório local, executar linha de comando "mvn install".
+
+
+
+Definição de escopo para dependências:
+
+Para especificar um escopo para cada dependência do projeto maven, inserir na chave "scope" (compile, teste, runtime, provided).
+
+
+
+Exclusão de dependências:
+
+Para especificar uma dependẽncia que precisa ser desconsiderada nas libs do projeto, inserior na chave "exclusion" as informações da dependência a ser excluída.
+
+
+
+Observação: 
+
+Todos os plugins utilizados podem ou não ser configurados em fases específicas do ciclico de vida (build) de um projeto.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Fases de ciclio de vida (build):
+
+1º Validação: Verificamos se o projeto possui todas as informações necessárias.
+
+2º Compilação: Compilar os arquivos do código fonte.
+
+3º Teste unitário: Realizar testes diferentes no projeto.
+
+4º Pacote: Geração de um pacote do projeto.
+
+5º Teste Integração: Realizar testes de integração.
+
+6º Verificação: Checagem do pacote gerado.
+
+7º Instalação: Realizar a instalação do pacote no repositório local.
+
+8º Implantação: Realizar a implantação no ambiente adequado.
+
+
+Executar o comando "mvn compile" persiste em duas fases 1º validação e 2º compilação.
+
+Executar o comando "mvn test" persiste a fase 3º teste unitário.
+
+Executar o comando "mvn package" persiste a fase 4º pacote.
+
+Executar o comando "mvn integration test" persiste na fase 5º teste integração.
+
+Executar o comando "mvn verify" persiste na fase 6º verificação.
+
+Executar o comando "mvn install" persiste na fase 7º instalação.
+
+Executar o comando "mvn deploy" persiste na fase 8º implantação.
+
+
+
+
+
+
+
+
+
